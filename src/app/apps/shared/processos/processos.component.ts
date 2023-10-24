@@ -81,12 +81,7 @@ export class ProcessosComponent {
 
   escalonar(path: string) {
     this.apiRequest.post(`executar/run`, path).subscribe((res: any) => {
-      if (res.mensagem == "Running") {
-        console.log("Running");
-      }
-      else {
-        alert(res.mensagem);
-      }
+      console.log(res)
     });
   }
 

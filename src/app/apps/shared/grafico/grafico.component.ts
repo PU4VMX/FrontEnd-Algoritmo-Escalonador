@@ -74,30 +74,41 @@ export class GraficoComponent implements OnInit {
   }
 
   updateProcessos(processo: Processo) {
-    let diferencaX = 0
-    let diferencaY = 0
     this.processos.find((p: Processo) => {
-      diferencaX = p.tempo_execucao - processo.tempo_restante;
-      diferencaY = p.tempo_espera - processo.tempo_espera;
       if (p.nome == processo.nome) {
         p.estado = processo.estado;
         p.tempo_espera = processo.tempo_espera;
         p.tempo_restante = processo.tempo_restante;
       }
     });
-    this.updateChart(processo, diferencaX, diferencaY);
+    this.updateChart(processo);
   }
 
-  updateChart(processo:any, diferencaX:number, diferencaY:number) {
+  updateChart(processo:Processo) {
     let index = this.series.findIndex((s: any) => s.name == processo.nome);
     let data = this.series[index].data;
-    data.push({
-      x: processo.estado,
-      y: [
-        processo.tempo_espera,
-        diferencaX ,
-      ],
-    });
+    if (processo.estado == "Pronto"){
+      return
+    }
+    if (processo.estado == "Finalizado"){
+      data.push({
+        x: processo.estado,
+        y: [
+          processo.instante_final,
+          processo.instante_final+0.1
+        ],
+      });
+    }
+    else{
+      data.push({
+        x: processo.estado,
+        y: [
+          processo.instante_inicial,
+          processo.instante_inicial + processo.tempo_executado,
+        ],
+      });
+    }
+
     this.series[index].data = data;
     this.chartOptions.series = [...this.series];
   }
