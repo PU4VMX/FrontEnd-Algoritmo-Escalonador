@@ -1,0 +1,52 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-5">
+            <div class="card-header bg-white">
+                <h1 class="card-title">Shortest Job First</h1>
+            </div>
+            <div class="card-body">
+                <div class="content">
+                    <h3>Algoritmo Shortest Job First (SJF)</h3>
+
+                    <p>O algoritmo Shortest Job First (SJF) é um algoritmo de escalonamento de processos em sistemas
+                        operacionais. Ele atribui a CPU ao processo que possui o menor tempo de execução (ou duração)
+                        entre
+                        todos os processos prontos. O SJF é não preemptivo, o que significa que o processo em execução
+                        não é
+                        interrompido até que seja concluído ou bloqueado voluntariamente.</p>
+
+                    <h3>Funcionamento Básico:</h3>
+                    <ol>
+                        <li>Lista de processos: O sistema mantém uma lista de todos os processos prontos para serem
+                            executados.</li>
+                        <li>Escalonamento inicial: No início, o sistema operacional seleciona o processo com o menor
+                            tempo
+                            de execução na fila de prontidão para ser executado.</li>
+                        <li>Execução do processo: O processo selecionado é executado pela CPU até que seja concluído ou
+                            bloqueado.</li>
+                        <li>Conclusão do processo: Quando um processo é concluído, ele é removido da fila de prontidão.
+                        </li>
+                        <li>Seleção do próximo processo: Após a conclusão de um processo, o sistema seleciona o próximo
+                            processo com o menor tempo de execução remanescente na fila de prontidão.</li>
+                        <li>Ciclo contínuo: O sistema continua a executar os processos de acordo com o tamanho do tempo
+                            de
+                            execução, escolhendo sempre o próximo processo com o menor tempo de execução.</li>
+                    </ol>
+
+                    <p>O algoritmo SJF é eficaz para minimizar o tempo médio de espera dos processos, pois prioriza a
+                        execução dos processos mais curtos primeiro. No entanto, ele pode ser injusto com processos
+                        longos,
+                        uma vez que eles podem sofrer com um tempo de espera prolongado. Além disso, o SJF requer
+                        informações precisas sobre o tempo de execução de cada processo, o que nem sempre é facilmente
+                        obtido em sistemas reais.</p>
+                </div>
+            </div>
+            <div class="content">
+                <hr>
+                <app-processos [prioridade]="false"></app-processos>
+                <hr>
+                <app-grafico></app-grafico>
+            </div>
+        </div>
+    </div>
+</div>

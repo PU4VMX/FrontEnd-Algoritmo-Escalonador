@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-5">
+            <div class="card-header bg-white">
+                <h1 class="card-title">Shortest Remaining Time First</h1>
+            </div>
+            <div class="card-body">
+                <div class="content">
+                    <h3>Algoritmo Shortest Remaining Time First (SRTF)</h3>
+
+                    <p>O algoritmo Shortest Remaining Time First (SRTF), também conhecido como "Preemptive Shortest Job
+                        First" (Preemptive SJF), é um algoritmo de escalonamento de processos em sistemas operacionais.
+                        Ele atribui a CPU ao processo que possui o menor tempo de execução remanescente em relação a
+                        todos os processos prontos. O SRTF é uma variação do algoritmo SJF (Shortest Job First), mas com
+                        preempção, o que significa que o processo atual pode ser interrompido se um novo processo com um
+                        tempo de execução mais curto estiver pronto para ser executado.</p>
+
+                    <h3>Funcionamento Básico:</h3>
+                    <ol>
+                        <li>Lista de processos: O sistema mantém uma lista de todos os processos prontos para serem
+                            executados. A cada passo, o algoritmo seleciona o processo com o menor tempo de execução
+                            remanescente.</li>
+                        <li>Escalonamento inicial: No início, o sistema operacional seleciona o primeiro processo na
+                            fila de prontidão para ser executado.</li>
+                        <li>Execução do processo: O processo selecionado é executado pela CPU até que seu tempo de
+                            execução remanescente seja menor do que o tempo de execução remanescente de qualquer outro
+                            processo na fila de prontidão.</li>
+                        <li>Preempção: Se um novo processo chegar à fila de prontidão com um tempo de execução menor do
+                            que o processo em execução, o processo atual é interrompido e colocado de volta na fila de
+                            prontidão. O novo processo com o menor tempo de execução remanescente é então selecionado
+                            para execução.</li>
+                        <li>Conclusão do processo: Quando um processo é concluído, ele é removido da fila de prontidão.
+                        </li>
+                        <li>Ciclo contínuo: O sistema continua a alternar entre os processos de acordo com o tempo de
+                            execução remanescente até que todos os processos sejam concluídos.</li>
+                    </ol>
+
+                    <p>O algoritmo SRTF visa minimizar o tempo de espera dos processos, dando prioridade aos processos
+                        mais curtos. Isso pode resultar em um melhor desempenho em termos de tempo de resposta e tempo
+                        de retorno, especialmente em cenários onde os processos variam em duração.</p>
+                </div>
+            </div>
+            <div class="content">
+                <hr>
+                <app-processos [prioridade]="false"></app-processos>
+                <hr>
+                <app-grafico></app-grafico>
+            </div>
+        </div>
+    </div>
+</div>

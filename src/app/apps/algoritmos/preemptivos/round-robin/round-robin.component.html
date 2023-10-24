@@ -1,0 +1,56 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-5">
+            <div class="card-header bg-white">
+                <h1 class="card-title">Round-Robin</h1>
+            </div>
+            <div class="card-body">
+                <div class="content">
+                    <h3>Algoritmo Round-Robin</h3>
+
+                    <p>O algoritmo Round-Robin é um dos algoritmos de escalonamento mais simples e amplamente utilizados
+                        em sistemas operacionais e no gerenciamento de tarefas em sistemas computacionais. Ele é
+                        comumente usado para alocar tempo de CPU para processos ou threads em um sistema multi-tarefa,
+                        garantindo que todos os processos tenham oportunidades iguais de execução.</p>
+
+                    <h3>Funcionamento Básico:</h3>
+                    <ol>
+                        <li>Lista de processos: O sistema mantém uma lista de todos os processos ou tarefas prontos para
+                            serem executados. Essa lista é frequentemente chamada de fila de prontidão.</li>
+                        <li>Tempo de fatia (time slice): Um parâmetro importante do algoritmo Round-Robin é o tempo de
+                            fatia ou quantum. Esse valor determina quanto tempo cada processo receberá a CPU antes de
+                            ser interrompido para dar oportunidade a outro processo.</li>
+                        <li>Escalonamento inicial: No início, o sistema operacional seleciona o primeiro processo na
+                            fila de prontidão para ser executado.</li>
+                        <li>Execução do processo: O processo selecionado é executado pela CPU pelo período de tempo
+                            igual ao quantum definido. Se o processo terminar antes do quantum, ele é removido da fila
+                            de prontidão.</li>
+                        <li>Interrupção do quantum: Quando o quantum do processo atual expira, ele é interrompido, e o
+                            sistema move esse processo para o final da fila de prontidão (ou seja, ele será agendado
+                            novamente, mas após todos os outros processos na fila).</li>
+                        <li>Seleção do próximo processo: O próximo processo na fila de prontidão é selecionado para
+                            execução, e o ciclo continua.</li>
+                        <li>Ciclo contínuo: O sistema continua a alternar entre os processos na fila de prontidão de
+                            acordo com o quantum até que todos os processos sejam concluídos ou suspendidos.</li>
+                        <li>Preempção: O algoritmo Round-Robin é um algoritmo preemptivo, o que significa que ele pode
+                            interromper um processo em execução após o término do quantum, dando oportunidade a outros
+                            processos. Isso ajuda a garantir que nenhum processo monopolize a CPU indefinidamente.</li>
+                    </ol>
+
+                    <p>O algoritmo Round-Robin é eficaz para sistemas em que os processos têm tempos de execução
+                        semelhantes, pois garante uma distribuição justa do tempo de CPU entre eles. No entanto, pode
+                        haver um overhead significativo de troca de contexto (quando o sistema muda de um processo para
+                        outro) em sistemas com muitos processos de curta duração, o que pode afetar o desempenho.
+                        Portanto, a escolha do tamanho do quantum é importante para otimizar o desempenho em situações
+                        específicas.</p>
+                </div>
+            </div>
+            <div class="content">
+                <hr>
+                <app-processos [prioridade]="false"></app-processos>
+                <hr>
+                <app-grafico></app-grafico>
+            </div>
+        </div>
+    </div>
+</div>

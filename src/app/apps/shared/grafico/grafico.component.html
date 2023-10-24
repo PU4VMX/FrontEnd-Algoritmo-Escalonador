@@ -1,0 +1,78 @@
+<div *ngIf="processos.length" class="container">
+  <div class="container mb-3 mt-3">
+    <h2>Tabela de processos</h2>
+    <div class="table table-responsive">
+      <table class="table table-striped text-center">
+        <thead>
+          <th>PID</th>
+          <th>Nome</th>
+          <th>Estado</th>
+          <th *ngIf="enable">Prioridade</th>
+          <th>Tempo de Chegada</th>
+          <th>Tempo de Execução</th>
+          <th>Tempo de Espera</th>
+          <th>Tempo de Restante</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let processo of processos">
+            <td>{{ processo.pid }}</td>
+            <td>{{ processo.nome }}</td>
+            <td>
+              <span
+                *ngIf="processo.estado == 'Executando'"
+                class="badge bg-success"
+                >Executando</span
+              >
+              <span
+                *ngIf="processo.estado == 'Novo'"
+                class="badge bg-primary"
+                >Novo</span
+              >
+              <span *ngIf="processo.estado == 'Pronto'" class="badge bg-warning"
+                >Pronto</span
+              >
+              <span
+                *ngIf="processo.estado == 'Em espera'"
+                class="badge bg-danger"
+                >Em espera</span
+              >
+              <span
+                *ngIf="processo.estado == 'Finalizado'"
+                class="badge bg-secondary"
+                >Finalizado</span
+              >
+            </td>
+            <td *ngIf="enable">{{ processo.prioridade }}</td>
+            <td>{{ processo.tempo_chegada }}</td>
+            <td>{{ processo.tempo_execucao }}</td>
+            <td>{{ processo.tempo_espera }}</td>
+            <td>{{ processo.tempo_restante }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md">
+        <button class="btn btn-success" (click)="escalonar()">Iniciar</button>
+      </div>
+      <div class="col-md">
+        <button class="btn btn-danger" (click)="parar()">Parar</button>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <div class="container">
+    <h2>Execução de processos</h2>
+    <ngx-simplebar>
+      <apx-chart
+        [series]="chartOptions.series"
+        [chart]="chartOptions.chart"
+        [xaxis]="chartOptions.xaxis"
+        [dataLabels]="chartOptions.dataLabels"
+        [legend]="chartOptions.legend"
+        [plotOptions]="chartOptions.plotOptions"
+        [colors]="chartOptions.colors"
+      ></apx-chart>
+    </ngx-simplebar>
+  </div>
+</div>

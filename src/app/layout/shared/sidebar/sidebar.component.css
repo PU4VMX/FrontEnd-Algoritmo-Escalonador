@@ -1,0 +1,8 @@
+.nav-item{
+    cursor: pointer;
+}
+
+.sidebar{
+    width: 300px;
+    height: 90vh;
+}

@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-5">
+            <div class="card-header bg-white">
+                <h1 class="card-title">Escalonamento por Prioridade Cooperativo</h1>
+            </div>
+            <div class="card-body">
+                <div class="content">
+                    <h3>Escalonamento por Prioridade Cooperativo</h3>
+
+                <p>O escalonamento por prioridade cooperativo é um método de gerenciamento de tarefas em sistemas
+                    operacionais em que cada tarefa ou processo é atribuído a uma prioridade específica. A execução dos
+                    processos ocorre de forma cooperativa, o que significa que os próprios processos devem cooperar para
+                    liberar a CPU voluntariamente, pois o sistema operacional não impõe a preempção. A tarefa com maior
+                    prioridade presente na CPU continua executando até que ela decida liberar o controle ou termine sua
+                    execução.</p>
+
+                <h3>Funcionamento Básico:</h3>
+                <ol>
+                    <li>Atribuição de prioridades: Cada tarefa ou processo é atribuído a uma prioridade específica no
+                        sistema. As prioridades podem variar de baixa a alta, com tarefas de alta prioridade obtendo
+                        acesso à CPU antes das de baixa prioridade.</li>
+                    <li>Execução cooperativa: Os processos devem liberar voluntariamente a CPU após completar suas
+                        tarefas ou aguardar algum evento. Não há preempção forçada pelo sistema operacional.</li>
+                    <li>Escolha de próxima tarefa: A escolha da próxima tarefa a ser executada é realizada com base na
+                        prioridade. Tarefas de maior prioridade têm preferência sobre as de menor prioridade.</li>
+                    <li>Interrupções: Eventualmente, as tarefas podem ser interrompidas por interrupções ou eventos
+                        externos, como entradas do usuário ou dispositivos de hardware. Nesse caso, o sistema pode
+                        trocar de contexto para lidar com a interrupção e, posteriormente, retornar à tarefa original.
+                    </li>
+                    <li>Ciclo contínuo: O ciclo de atribuição de prioridades, execução e cooperação continua até que
+                        todas as tarefas tenham sido concluídas ou bloqueadas aguardando eventos externos.</li>
+                </ol>
+
+                <p>O escalonamento por prioridade cooperativo é mais adequado para sistemas em que os processos ou
+                    tarefas são confiáveis e cooperativos, pois não há preempção forçada. No entanto, ele também
+                    apresenta riscos, pois uma tarefa de prioridade muito alta pode monopolizar a CPU, causando bloqueio
+                    de tarefas com prioridades mais baixas. Portanto, a atribuição adequada de prioridades e a
+                    cooperação dos processos são essenciais para garantir um desempenho equilibrado.</p>
+                </div>
+            </div>
+            <div class="content">
+                <hr>
+                <app-processos [prioridade]="false"></app-processos>
+                <hr>
+                <app-grafico></app-grafico>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="d-flex">
+  <div class="d-flex flex-column flex-shrink-0 p-3 bg-light bg-gradient sidebar">
+      <h5 class="text-center">
+          Trabalho Prático de Sistemas Operacionais
+      </h5>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-0">
+          <li class="nav-item mb-2" [routerLink]="['/']">
+              <a class="nav-link active" aria-current="page">
+                  Home
+              </a>
+          </li>
+      </ul>
+      <hr>
+      <h5>Preemptivos</h5>
+      <ul class="nav nav-pills flex-column mb-0">
+          <li class="nav-item mb-2" [routerLink]="['/rr']">
+              <a class="nav-link active" aria-current="page">
+                  Round-Robin
+              </a>
+          </li>
+          <li class="nav-item mb-2" [routerLink]="['/srtf']">
+              <a class="nav-link active" aria-current="page">
+                  Shortest Remaining Time First
+              </a>
+          </li>
+      </ul>
+      <hr>
+      <h5>Não Preemptivos</h5>
+      <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item mb-2" [routerLink]="['/sjf']">
+              <a class="nav-link active" aria-current="page">
+                  Shortest Job First
+              </a>
+          </li>
+          <li class="nav-item mb-2" [routerLink]="['/prio']">
+              <a class="nav-link active" aria-current="page">
+                  Escalonamento por Prioridade Cooperativo
+              </a>
+          </li>
+      </ul>
+      <hr>
+      <div class="dropdown">
+          <a href="#" class="d-flex align-items-center link-dark text-decoration-none" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="https://avatars.githubusercontent.com/u/53962722?v=4" alt="" width="32" height="32" class="rounded-circle me-2">
+              <strong>Vinicius Marques</strong>
+          </a>
+      </div>
+  </div>
+  <div class="d-flex m-5">
+      <router-outlet></router-outlet>
+  </div>
+</div>

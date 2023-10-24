@@ -1,0 +1,82 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card p-5">
+            <div class="card-header bg-white">
+                <h1>Trabalho Prático de Sistemas Operacionais</h1>
+            </div>
+            <div class="card-body">
+                <h3>Algoritmos de Escalonamento</h3>
+
+                <p>Um algoritmo escalonador é uma parte fundamental de um sistema operacional responsável por determinar
+                    a ordem em que os processos (ou tarefas) serão executados em um computador. Sua principal função é
+                    otimizar o uso dos recursos de hardware, como a CPU, para garantir que os processos sejam executados
+                    de maneira eficiente e justa.</p>
+
+                <h3>Principais Pontos sobre Algoritmos Escalonadores:</h3>
+
+                <ol>
+                    <li>Objetivo Principal: O principal objetivo de um escalonador é alocar a CPU de maneira eficiente,
+                        garantindo que os processos sejam atendidos de forma justa, evitando inanição (quando um
+                        processo nunca é executado) e minimizando o tempo de resposta.</li>
+                    <li>Tipos de Algoritmos: Existem vários tipos de algoritmos escalonadores, incluindo escalonamento
+                        preemptivo e não preemptivo. Os escalonadores preemptivos podem interromper um processo em
+                        execução para dar a chance a outro processo, enquanto os não preemptivos só permitem a troca de
+                        processos em pontos específicos, como quando um processo termina ou bloqueia.</li>
+                    <li>Critérios de Escalonamento: Os algoritmos escalonadores usam diferentes critérios para tomar
+                        decisões, como prioridade, tempo de execução restante, tempo de chegada e assim por diante.
+                        Alguns algoritmos são orientados por prioridade, enquanto outros seguem uma abordagem mais
+                        justa, como o escalonamento round-robin.</li>
+                    <li>Algoritmos Populares: Alguns dos algoritmos escalonadores mais conhecidos incluem o First-Come,
+                        First-Served (FCFS), Shortest Job Next (SJN), Round-Robin, Priority Scheduling e Multi-Level
+                        Queue Scheduling, cada um com suas vantagens e desvantagens.</li>
+                    <li>Balanceamento de Carga: Em sistemas multiprocessadores ou multinúcleo, os escalonadores também
+                        desempenham um papel importante no balanceamento de carga, distribuindo as tarefas de maneira
+                        equitativa entre os núcleos para aproveitar ao máximo os recursos de hardware disponíveis.</li>
+                    <li>Considerações de Desempenho: A escolha do algoritmo escalonador pode ter um grande impacto no
+                        desempenho do sistema. Portanto, os desenvolvedores devem selecionar o algoritmo apropriado com
+                        base nos requisitos específicos do sistema e nas características dos processos a serem
+                        executados.</li>
+                    <li>Complexidade: Alguns algoritmos escalonadores são mais complexos do que outros, levando em
+                        consideração fatores como envelhecimento de processos, herança de prioridade e preempção. A
+                        escolha de um algoritmo depende da complexidade do sistema e das metas de desempenho desejados.
+                    </li>
+                </ol>
+            </div>
+            <hr>
+            <div class="card-body">
+                <h3>Tipos de algoritmos</h3>
+                <ul>
+                    <li>
+                        <h4>Algoritmo preemptivo</h4>
+                    </li>
+                    <p>Um algoritmo preemptivo é aquele em que o sistema operacional tem a capacidade de interromper a
+                        execução de um processo em andamento, se necessário, para dar prioridade a outro processo de
+                        maior prioridade. Isso significa que um processo em execução pode ser interrompido antes de ser
+                        concluído se um processo mais importante (com prioridade mais alta) precisar ser executado. Os
+                        algoritmos preemptivos geralmente usam um temporizador para determinar quando interromper a
+                        execução de um processo e selecionar o próximo a ser executado.
+
+                        Exemplos de algoritmos preemptivos incluem o Round Robin, o Shortest Remaining Time First (SRTF)
+                        e o Priority Scheduling com preempção.</p>
+                    <li>
+                        <h4>Algoritmo não preemptivo</h4>
+                    </li>
+                    <p>Um algoritmo não preemptivo, por outro lado, não permite que um processo em execução seja
+                        interrompido pelo sistema operacional. O processo atualmente em execução só é liberado após ter
+                        sido totalmente concluído ou quando ele mesmo voluntariamente libera o controle do processador.
+                        Isso significa que, se um processo com prioridade mais alta chegar durante a execução de um
+                        processo com prioridade mais baixa, o processo de alta prioridade terá que esperar até que o
+                        processo atual seja concluído.
+
+                        Exemplos de algoritmos não preemptivos incluem o First-Come, First-Served (FCFS) e o Shortest
+                        Job Next (SJN) ou algoritmo de escalonamento de menor duração.</p>
+                </ul>
+            </div>
+            <hr>
+            <div class="card-body">
+                <h3>Algoritmos de Escalonamento Implementados</h3>
+                <p><b>Preemptivos: </b> Round-Robin, Shortest Remaining Time First</p>
+                <p><b>Não Preemptivos:</b> Shortest Job First, Escalonamento por Prioridade Cooperativo</p>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,81 @@
+<div class="container">
+    <h2 class="mb-3">Novo processo</h2>
+    <div class="row mb-4">
+        <div class="col-sm-3">
+            <button class="btn btn-primary" (click)="openModal(newProcess)">Adicionar Processo</button>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-secondary" (click)="createProcessRandom()">Gerar processos aleatórios</button>
+        </div>
+        <div class="col-sm-3">
+            <button class="btn btn-danger" (click)="clearProcess()">Limpar processos</button>
+        </div>
+    </div>
+    <div class="row mb-3" *ngIf="enableQuantum">
+        <div class="col-sm-4">
+            <label for="quantum" class="form-label">Quantum</label>
+            <input type="range" class="form-range" min="1" max="10" step="1" id="quantum" [(ngModel)]="quantum"
+                (change)="quantumChange()">
+            <div class="text-center">
+                <span class="badge bg-primary">{{quantum}}s</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #newProcess let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modalLabel">Novo processo</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()">
+        </button>
+    </div>
+    <div class="modal-body">
+        <form name="new-process" [formGroup]="processItem">
+            <div class="col-md-12">
+                <div class="mb-3" *ngIf="prioridade">
+                    <label for="recipient-name" class="col-form-label">Prioridade:</label>
+                    <input type="number" class="form-control" formControlName="prioridade" min="0" max="10"
+                        [ngClass]="{'is-invalid': formSubmitted && formValues['prioridade'].invalid}">
+                    <div *ngIf="formSubmitted && formValues['prioridade'].invalid" class="invalid-feedback">
+                        <div *ngIf="formValues['prioridade'].errors?.['required']">
+                            Você precisa informar o nível de prioridade.
+                        </div>
+                        <div *ngIf="formValues['prioridade'].errors?.['prioridade']">
+                            É necessário informar um valor entre 0 e 10.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Tempo de chegada:</label>
+                    <input type="number" class="form-control" formControlName="tempo_chegada" min="0" max="100"
+                        [ngClass]="{'is-invalid': formSubmitted && formValues['tempo_chegada'].invalid}">
+                    <div *ngIf="formSubmitted && formValues['tempo_chegada'].invalid" class="invalid-feedback">
+                        <div *ngIf="formValues['tempo_chegada'].errors?.['required']">
+                            Você precisa informar o tempo de chegada.
+                        </div>
+                        <div *ngIf="formValues['tempo_chegada'].errors?.['tempo_chegada']">
+                            É necessário informar um valor maior ou igual a 0.
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label">Tempo de execução:</label>
+                    <input type="number" class="form-control" formControlName="tempo_execucao" min="1" max="100"
+                        [ngClass]="{'is-invalid': formSubmitted && formValues['tempo_execucao'].invalid}">
+                    <div *ngIf="formSubmitted && formValues['tempo_execucao'].invalid" class="invalid-feedback">
+                        <div *ngIf="formValues['tempo_execucao'].errors?.['required']">
+                            Você precisa informar o tempo de execução.
+                        </div>
+                        <div *ngIf="formValues['tempo_execucao'].errors?.['tempo_execucao']">
+                            É necessário informar um valor maior ou igual a 0.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="onSubmit()">Adicionar</button>
+        </div>
+    </div>
+</ng-template>
