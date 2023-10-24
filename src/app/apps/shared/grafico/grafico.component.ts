@@ -68,7 +68,9 @@ export class GraficoComponent implements OnInit {
 
     this.comunicacao.finishEmmiter.subscribe((finish: boolean) => {
       if (finish) {
-        setTimeout()
+        setTimeout(() => {
+          alert('Todos os processos foram finalizados!');
+        }, 3000);
       }
     });
   }
