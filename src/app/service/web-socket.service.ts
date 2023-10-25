@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Client, Message } from '@stomp/stompjs';
 import { Observable, Subject } from 'rxjs';
+import { environment } from 'src/environments/environment.dev';
 
 @Injectable({
   providedIn: 'root',
@@ -12,8 +13,8 @@ export class WebSocketService {
 
   constructor() {
     this.stompClient = new Client({
-      brokerURL: 'ws://localhost:8080/ws', // URL do seu servidor Spring Boot WebSocket
-      //debug: (str) => console.log(str),
+      brokerURL: `${environment.WS}/ws`, // URL do seu servidor Spring Boot WebSocket
+      debug: (str) => console.log(str),
     });
   }
 

@@ -1,13 +1,15 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { retry } from 'rxjs/operators';
+import { environment } from 'src/environments/environment.dev';
 
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApiRequestService {
-  private url = 'https://backend-escalonador.azurewebsites.net/';
+
+  private url = `${environment.API}`;
 
   constructor(private httpClient: HttpClient) {}
 
