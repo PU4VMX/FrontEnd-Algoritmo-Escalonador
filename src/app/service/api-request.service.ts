@@ -7,7 +7,7 @@ import { retry } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class ApiRequestService {
-  private url = 'http://localhost:8080/';
+  private url = 'https://backend-escalonador.azurewebsites.net/';
 
   constructor(private httpClient: HttpClient) {}
 
